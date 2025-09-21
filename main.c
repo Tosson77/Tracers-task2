@@ -1,25 +1,37 @@
+/*
+ * main.c
+ *
+ *  Created on: Sep 10, 2025
+ *      Author: MARWAN TOSSON
+ */
+
 
 #include <stdio.h>
-
-
-int fib(int n) {
-    if (n <= 1)
-        return n;
-    else
-        return fib(n - 1) + fib(n - 2);
-}
+#include <stdlib.h>
 
 int main() {
-    int n, i;
-    printf("Enter number: ");
-    fflush(stdout);
-    scanf("%i", &n);
+int x=0,y=1,sum,n;
+printf("Enter Number: ");
+fflush(stdout);
+scanf("%i",&n);
+if (n==1){
+	printf("0\n");
+}
+else if(n==2){
+	printf("0\n1\n");
+}
+else {
+	printf("0\n");
+	printf("1\n");
+	for(int i=0;i<n-2;i++){
 
+		sum=x+y;
+		x=y;
+		y=sum;
 
-    for (i = 0; i < n; i++) {
-        printf("%i ", fib(i));
-    }
-    printf("\n");
+		printf("%i\n",sum);
+}
+}
 
-    return 0;
+	return 0;
 }
