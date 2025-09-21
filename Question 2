@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+struct Student {
+    char name[50];
+    int age;
+    float degree;
+    int section;
+};
+
+int main() {
+    struct Student students[5] = {
+        {"Ali", 20, 90, 1},
+        {"said", 19, 60,2},
+        {"Omar", 20, 77, 3},
+        {"kareem", 20, 100, 2},
+        {"fathy", 19, 96, 1}
+    };
+
+    printf("Student Records:\n");
+    for (int i = 0; i < 5; i++) {
+        printf("Name: %s, Age: %i, Degree: %f, Section: %i\n",
+               students[i].name, students[i].age, students[i].degree, students[i].section);
+    }
+
+    return 0;
+}
