@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Student {
+    char name[50];
+    int age;
+    float gpa;
+};
+
+int main() {
+    int n;
+    printf("Enter number of students: ");
+    scanf("%d", &n);
+
+    struct Student* students = (struct Student*)malloc(n * sizeof(struct Student));
+
+    // إدخال البيانات
+    for (int i = 0; i < n; i++) {
+        printf("Enter name, age, GPA for student %i:\n", i + 1);
+        scanf("%s %i %f", students[i].name, &students[i].age, &students[i].gpa);
+    }
+
+    printf("\nStudent Records:\n");
+    for (int i = 0; i < n; i++) {
+        printf("Name: %s, Age: %i, GPA: %.2f\n",
+               students[i].name, students[i].age, students[i].gpa);
+    }
+
+    int topIndex = 0;
+    for (int i = 1; i < n; i++) {
+        if (students[i].gpa > students[topIndex].gpa)
+            topIndex = i;
+    }
+
+    printf("\nStudent with highest GPA:\n");
+    printf("Name: %s, Age: %d, GPA: %.2f\n",
+           students[topIndex].name, students[topIndex].age, students[topIndex].gpa);
+
+    free(students);
+    return 0;
+}
